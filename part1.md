@@ -1,4 +1,4 @@
-# Part 1
+ Part 1
 ## 1.1 Getting Started
 ```
 $ docker ps -a 
@@ -120,3 +120,40 @@ $ docker exec -it helsinkifi bash
 root@fc0f1b4fe478:/# apt install curl
 ```
 
+## 1.6
+Dockerfile 
+```docker
+FROM devopsdockeruh/overwrite_cmd_exercise
+CMD ["-c"]
+```
+Command used to run the container 
+```
+$ docker run docker-clock
+```
+
+## 1.7
+Dockerfile 
+```docker
+FROM ubuntu:16.04 
+
+WORKDIR /ex1_7
+RUN apt-get update && apt-get install -y curl
+
+COPY script.sh .
+
+CMD ["bash", "script.sh"]
+```
+Command used to run the container 
+```
+$ docker run -it curler 
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+```
