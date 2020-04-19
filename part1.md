@@ -121,28 +121,16 @@ root@fc0f1b4fe478:/# apt install curl
 ```
 
 ## 1.6
-Dockerfile 
-```docker
-FROM devopsdockeruh/overwrite_cmd_exercise
-CMD ["-c"]
-```
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-6/Dockerfile)
+
 Command used to run the container 
 ```
 $ docker run docker-clock
 ```
 
 ## 1.7
-Dockerfile 
-```docker
-FROM ubuntu:16.04 
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-7/Dockerfile)
 
-WORKDIR /ex1_7
-RUN apt-get update && apt-get install -y curl
-
-COPY script.sh .
-
-CMD ["bash", "script.sh"]
-```
 Command used to run the container 
 ```
 $ docker run -it curler 
@@ -156,4 +144,18 @@ Searching..
 <h1>Moved Permanently</h1>
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
+```
+## 1.8
+```
+$ docker pull devopsdockeruh/first_volume_exercise
+$ touch logs.txt
+$ docker run -v $(pwd)/logs.txt:/usr/app/logs.txt --name log devopsdockeruh/first_volume_exercise
+```
+
+## 1.9
+```
+$ docker run -d -p 80 devopsdockeruh/ports_exercise
+3152f5e43b90e5e8065707f2df2d05f9a401ad3065be42b5014f1105eeb4b76c
+$ docker port 3152
+80/tcp -> 0.0.0.0:32769
 ```
