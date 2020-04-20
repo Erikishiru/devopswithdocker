@@ -3,7 +3,7 @@
 ```
 $ docker ps -a 
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
-04bffe133667        nginx               "nginx -g 'daemon of…"   3 minutes ago             Up 2 minutes               80/tcp              wonderful_herschel
+04bffe133667        nginx               "nginx -g 'daemon of…"   3 minutes ago       Up 2 minutes               80/tcp              wonderful_herschel
 33bdfdb8a1ce        nginx               "nginx -g 'daemon of…"   3 minutes ago       Exited (0) 2 minutes ago                       optimistic_liskov
 d0f1cbefefbc        nginx               "nginx -g 'daemon of…"   3 minutes ago       Exited (0) 2 minutes ago                       magical_shaw
 ```
@@ -62,7 +62,7 @@ You found the correct password. Secret message is:
 ```
 
 ## 1.4 
-### Terminal Window 1
+Terminal Window 1
 ```
 $ docker pull devopsdockeruh/exec_bash_exercise
 Using default tag: latest
@@ -83,7 +83,7 @@ docker.io/devopsdockeruh/exec_bash_exercise:latest
 $ docker run -d --rm -it --name ex1_4 devopsdockeruh/exec_bash_exercise 
 531c810bc716dbb074d441759995fc22b669b9b44611753c6dfad01669931052
 ```
-### Ternianl Window 2
+Ternianl Window 2
 ```
 $ docker exec -it ex1_4 bash 
 root@531c810bc716:/usr/app# tail -f ./logs.txt
@@ -158,4 +158,27 @@ $ docker run -d -p 80 devopsdockeruh/ports_exercise
 3152f5e43b90e5e8065707f2df2d05f9a401ad3065be42b5014f1105eeb4b76c
 $ docker port 3152
 80/tcp -> 0.0.0.0:32769
+```
+
+## 1.10
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-10/Dockerfile)
+
+## 1.11
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-11/Dockerfile)
+
+Commands used 
+```
+$ docker build -t backend .
+$ docker run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example-docker/logs.txt backend
+```
+
+## 1.12
+[Frontend Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-11/frontend/Dockerfile)
+
+[Backend Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-12/backend/Dockerfile)
+
+Commands used 
+```
+$ docker run -d -p 5000:5000 frontend 
+$ docker run -d -p 8000:8000 backend
 ```
