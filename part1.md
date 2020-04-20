@@ -173,7 +173,7 @@ $ docker run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example-docker/logs.txt
 ```
 
 ## 1.12
-[Frontend Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-11/frontend/Dockerfile)
+[Frontend Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-12/frontend/Dockerfile)
 
 [Backend Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-12/backend/Dockerfile)
 
