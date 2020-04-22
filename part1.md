@@ -1,4 +1,3 @@
- Part 1
 ## 1.1 Getting Started
 ```
 $ docker ps -a 
@@ -20,23 +19,7 @@ $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 nginx               latest              5a8dfb2ca731        26 hours ago        127MB
 ```
-```
-$ docker stop 04
-04
-$ docker rm 04
-04
-$ docker rm 33
-33
-$ docker rm d0 
-d0
-$ docker rmi 5a 
-Untagged: nginx:latest
-Untagged: nginx@sha256:4d947aef8841aed19cc0896a38e12d49d50feba7f583998a164ffeb31e655919
-Deleted: sha256:5a8dfb2ca7312ee39433331b11d92f45bb19d7809f7c0ff19e1d01a2c131e959
-Deleted: sha256:eede83f79a434879440e1f6f6f98a135b38057a35ddcdace715ae1bddcd7a884
-Deleted: sha256:fa994cfd7aeedcd46b70cf30fea0ccf9f59f990bbb86bfa9b7c02d7ff2a833eb
-Deleted: sha256:b60e5c3bcef2f42ec42648b3acf7baf6de1fa780ca16d9180f3b4a3f266fe7bc
-```
+After Cleanup
 ```
 $ docker ps -a 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
@@ -45,6 +28,10 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 ```
 
 ## 1.3 Hello Docker Hub
+Secret message is:
+"This is the secret message"
+
+Commands used 
 ```
 $ docker run -it devopsdockeruh/pull_exercise
 Unable to find image 'devopsdockeruh/pull_exercise:latest' locally
@@ -62,28 +49,16 @@ You found the correct password. Secret message is:
 ```
 
 ## 1.4 
-Terminal Window 1
+Secret message is:
+"Docker is easy"
+
+Commands used 
 ```
 $ docker pull devopsdockeruh/exec_bash_exercise
-Using default tag: latest
-latest: Pulling from devopsdockeruh/exec_bash_exercise
-741437d97401: Pull complete 
-34d8874714d7: Pull complete 
-0a108aa26679: Pull complete 
-7f0334c36886: Pull complete 
-65c95cb8b3be: Pull complete 
-a36b708560f8: Pull complete 
-4090f912e6c7: Pull complete 
-ce5fe2607c2e: Pull complete 
-9400f5f657d6: Pull complete 
-c4919883f7fa: Pull complete 
-Digest: sha256:c463832132d1fb0b8b3b60348a6fc36fda7512a4ef2d1050e8bea7b6a6d7a2f3
-Status: Downloaded newer image for devopsdockeruh/exec_bash_exercise:latest
-docker.io/devopsdockeruh/exec_bash_exercise:latest
-$ docker run -d --rm -it --name ex1_4 devopsdockeruh/exec_bash_exercise 
-531c810bc716dbb074d441759995fc22b669b9b44611753c6dfad01669931052
 ```
-Ternianl Window 2
+```
+$ docker run -d --rm -it --name ex1_4 devopsdockeruh/exec_bash_exercise 
+```
 ```
 $ docker exec -it ex1_4 bash 
 root@531c810bc716:/usr/app# tail -f ./logs.txt
@@ -94,15 +69,6 @@ Fri, 17 Apr 2020 13:59:12 GMT
 Fri, 17 Apr 2020 13:59:15 GMT
 Secret message is:
 "Docker is easy"
-Fri, 17 Apr 2020 13:59:21 GMT
-Fri, 17 Apr 2020 13:59:24 GMT
-^C
-root@531c810bc716:/usr/app# exit 
-exit
-$ docker kill ex1_4
-ex1_4
-$ docker container ls 
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
 ## 1.5
@@ -182,3 +148,27 @@ Commands used
 $ docker run -d -p 5000:5000 frontend 
 $ docker run -d -p 8000:8000 backend
 ```
+
+## 1.13 
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-13/Dockerfile)
+
+## 1.14
+[Dockerfile](https://github.com/Erikishiru/devopswithdocker/blob/master/exercise1-14/Dockerfile)
+
+## 1.15 
+[Docker Hub Image](https://hub.docker.com/repository/docker/erikishiru/flaskapp)
+
+## 1.16
+[Application URL](https://devopsdocker-heroku.herokuapp.com/)
+
+## 1.17
+[Docker Hub Image for devenvreact](https://hub.docker.com/repository/docker/erikishiru/devenvreact)
+
+This is a development environment to create a new react app inside a docker container.
+
+To run the container run the following command
+```
+$ docker run -it -d -v $(pwd):/react -p 3000:3000 devenvreact
+```
+
+Open the my-app direcotry in any code editor to develop an application inside a container.
